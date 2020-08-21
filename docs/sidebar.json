@@ -1,10 +1,9 @@
 {
-  "Notebook": {
-    "Export to modules": "/export",
-    "Convert to html": "/export2html",
-    "Show doc": "/showdoc",
-    "Test functions": "/test",
-    "Core functions": "/core",
-    "Command line functions": "/cli"
+  "nbdev_demo": {
+    "Overview": "/",
+    "Core": "core.html",
+    "Apple": "apple.html",
+    "Text core": "text_core.html",
+    "Text Utils": "text_utils.html"
   }
 }

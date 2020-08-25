@@ -2,6 +2,7 @@
 
 title: Core
 
+
 keywords: fastai
 sidebar: home_sidebar
 
@@ -31,6 +32,146 @@ nb_path: "00_core.ipynb"
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">IN_COLAB</span> <span class="o">=</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">())</span>
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+  <span class="kn">from</span> <span class="nn">google.colab</span> <span class="k">import</span> <span class="n">drive</span>
+  <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Go to this URL in a browser: https://accounts.google.com/o/oauth2/auth?client_id=947318989803-6bn6qk8qdgf4n4g3pfee6491hc0brc4i.apps.googleusercontent.com&amp;redirect_uri=urn%3aietf%3awg%3aoauth%3a2.0%3aoob&amp;scope=email%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdocs.test%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdrive%20https%3a%2f%2fwww.googleapis.com%2fauth%2fdrive.photos.readonly%20https%3a%2f%2fwww.googleapis.com%2fauth%2fpeopleapi.readonly&amp;response_type=code
+
+Enter your authorization code:
+··········
+Mounted at /content/drive
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+  <span class="o">!</span>pip install git+https://github.com/fastai/nbdev.git
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Collecting git+https://github.com/fastai/nbdev.git
+  Cloning https://github.com/fastai/nbdev.git to /tmp/pip-req-build-8o8wc8w2
+  Running command git clone -q https://github.com/fastai/nbdev.git /tmp/pip-req-build-8o8wc8w2
+Requirement already satisfied: pip in /usr/local/lib/python3.6/dist-packages (from nbdev==1.0.2) (19.3.1)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from nbdev==1.0.2) (20.4)
+Collecting fastcore&gt;=1.0.0
+  Downloading https://files.pythonhosted.org/packages/cc/92/233661d730b5613b4daf473cd28005bf2294fb1a858ce0bac57fbb7fa5ec/fastcore-1.0.0-py3-none-any.whl
+Requirement already satisfied: nbformat&gt;=4.4.0 in /usr/local/lib/python3.6/dist-packages (from nbdev==1.0.2) (5.0.7)
+Requirement already satisfied: nbconvert&gt;=5.6.1 in /usr/local/lib/python3.6/dist-packages (from nbdev==1.0.2) (5.6.1)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.6/dist-packages (from nbdev==1.0.2) (3.13)
+Collecting fastscript&gt;=1.0.0
+  Downloading https://files.pythonhosted.org/packages/60/e4/7790e3ca100841566fdc1ccee413b9a9d40629d1858d86b1b9ffbc4fa75a/fastscript-1.0.0-py3-none-any.whl
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;nbdev==1.0.2) (1.15.0)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;nbdev==1.0.2) (2.4.7)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.6/dist-packages (from fastcore&gt;=1.0.0-&gt;nbdev==1.0.2) (0.7)
+Requirement already satisfied: wheel in /usr/local/lib/python3.6/dist-packages (from fastcore&gt;=1.0.0-&gt;nbdev==1.0.2) (0.34.2)
+Requirement already satisfied: numpy in /usr/local/lib/python3.6/dist-packages (from fastcore&gt;=1.0.0-&gt;nbdev==1.0.2) (1.18.5)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev==1.0.2) (4.6.3)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev==1.0.2) (2.6.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev==1.0.2) (0.2.0)
+Requirement already satisfied: traitlets&gt;=4.1 in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev==1.0.2) (4.3.3)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (1.4.2)
+Requirement already satisfied: pygments in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (2.1.3)
+Requirement already satisfied: testpath in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (0.4.4)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (0.6.0)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (0.8.4)
+Requirement already satisfied: jinja2&gt;=2.4 in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (2.11.2)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (0.3)
+Requirement already satisfied: bleach in /usr/local/lib/python3.6/dist-packages (from nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (3.1.5)
+Requirement already satisfied: decorator in /usr/local/lib/python3.6/dist-packages (from traitlets&gt;=4.1-&gt;nbformat&gt;=4.4.0-&gt;nbdev==1.0.2) (4.4.2)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.6/dist-packages (from jinja2&gt;=2.4-&gt;nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (1.1.1)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.6/dist-packages (from bleach-&gt;nbconvert&gt;=5.6.1-&gt;nbdev==1.0.2) (0.5.1)
+Building wheels for collected packages: nbdev
+  Building wheel for nbdev (setup.py) ... done
+  Created wheel for nbdev: filename=nbdev-1.0.2-cp36-none-any.whl size=54736 sha256=2cf8c9b6203e5f957c04d0e1e246510f66a1fb4c1ec9d6a60fc846cb3a1c6aa3
+  Stored in directory: /tmp/pip-ephem-wheel-cache-tz8a9dxy/wheels/92/fb/71/9ef9a3edcda4b045bd45abb28de841f18ab36606a7ff7473d4
+Successfully built nbdev
+Installing collected packages: fastcore, fastscript, nbdev
+Successfully installed fastcore-1.0.0 fastscript-1.0.0 nbdev-1.0.2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+  <span class="o">%</span><span class="k">cd</span> &#39;/content/drive/My Drive/Colab Notebooks/github/nbdev_demo&#39;
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/content/drive/My Drive/Colab Notebooks/github/nbdev_demo
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -53,6 +194,25 @@ nb_path: "00_core.ipynb"
 
 </div>
 
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fastcore.test</span> <span class="k">import</span> <span class="n">test_eq</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">core_fn</span><span class="p">())</span>
+<span class="c1"># test_eq(&#39;This should fail as None is expected&#39;, core_fn())</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
